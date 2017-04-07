@@ -2,14 +2,14 @@
 #define __CONIC_MODEL_HPP__
 
 #include "IntrinsicModel.hpp"
-#include "DistortionPolynom.hpp"
+//#include "DistortionPolynom.hpp"
 class TiXmlNode;
 namespace Json { class Value; }
 
 class ConicModel : public IntrinsicModel
 {
 public:
-    ConicModel() : m_distortion(NULL) {}
+    ConicModel() {}// : m_distortion(NULL) {}
     ConicModel(const ConicModel &mod);
 
     ConicModel * Clone() const { return new ConicModel(*this); }
@@ -29,13 +29,13 @@ public:
 #endif
 
     double focal() const { return m_focal; }
-    void focal(double f) { m_focal = f; }
-    const DistortionPolynom* distortion() const { return m_distortion; }
-    DistortionPolynom* distortion() { return m_distortion; }
+    void focal(double f) { m_focal = f; std::cout << "\n m_focal = " << m_focal << std::endl; }
+//    const DistortionPolynom* distortion() const { return m_distortion; }
+//    DistortionPolynom* distortion() { return m_distortion; }
 
 private:
-    double m_focal;
-    DistortionPolynom* m_distortion;
+//    double m_focal;
+//    DistortionPolynom* m_distortion;
 };
 
 #endif // __CONIC_MODEL_HPP__

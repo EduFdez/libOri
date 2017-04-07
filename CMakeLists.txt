@@ -77,6 +77,9 @@ target_link_libraries(testOri ${Ori_LIBRARIES})
 if(PBRT_FOUND AND OpenCV_FOUND)
     add_executable(testPBRT test/mainPBRT.cpp test/PlyHeaderParser.h test/PlyHeaderParser.cpp )
     target_link_libraries(testPBRT ${Ori_LIBRARIES})
+
+    add_executable(testPBRTpano test/mainPBRTpano.cpp test/PlyHeaderParser.h test/PlyHeaderParser.cpp )
+    target_link_libraries(testPBRTpano ${Ori_LIBRARIES})
 endif(PBRT_FOUND AND OpenCV_FOUND)
 
 ##############################################################################

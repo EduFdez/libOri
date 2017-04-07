@@ -4,10 +4,10 @@
 
 //-----------------------------------------------------------------------------
 ConicModel::ConicModel(const ConicModel &mod)
-    : IntrinsicModel(mod), m_focal(mod.m_focal), m_distortion(NULL)
+    : IntrinsicModel(mod)//, m_focal(mod.m_focal)//, m_distortion(NULL)
 {
-    if(mod.m_distortion)
-        m_distortion = new DistortionPolynom(*mod.m_distortion);
+//    if(mod.m_distortion)
+//        m_distortion = new DistortionPolynom(*mod.m_distortion);
 }
 //-----------------------------------------------------------------------------
 ConicModel::~ConicModel()

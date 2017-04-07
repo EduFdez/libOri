@@ -2,12 +2,14 @@
 #define __INTRINSIC_MODEL_HPP_
 
 #include <iostream>
+#include "DistortionPolynom.hpp"    //****
 class TiXmlNode;
 namespace Json { class Value; }
 
 class IntrinsicModel
 {
 public:
+    IntrinsicModel() : m_distortion(NULL) {};  //****
     virtual ~IntrinsicModel() {}
     virtual IntrinsicModel * Clone() const = 0;
 
@@ -36,9 +38,15 @@ public:
     void cPPA(double c) { m_cPPA=c; }
     void lPPA(double l) { m_lPPA=l; }
 
+    double m_focal;
+    DistortionPolynom* m_distortion; //****
+    const DistortionPolynom* distortion() const { return m_distortion; } //****
+    DistortionPolynom* distortion() { return m_distortion; }            //****
+
 protected:
     unsigned int m_width, m_height;
-    double m_cPPA, m_lPPA;
+    double m_cPPA, m_lPPA;   
+
 };
 
 #endif /*__INTRINSIC_MODEL_HPP_*/
